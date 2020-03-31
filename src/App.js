@@ -11,7 +11,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
-          className="App-link"
+          className="App-link sd"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
@@ -19,6 +19,20 @@ function App() {
           Learn React
         </a>
       </header>
+      <button
+        onClick={()=>{
+          fetch('http://localhost:4000/graphql', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+            },
+            body: JSON.stringify({query: '{getMessage(types:"1"){name}}'}),
+            json: true
+          }).then(resp=> resp.json())
+            .then(console.log)
+        }}
+      >button</button>
     </div>
   );
 }

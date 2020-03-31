@@ -1,0 +1,15 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+}
+
+type Message {
+    l: String
+    name: String
+    types: String
+}
+
+type Query {
+    getMessage(types: String!): Message
+}
